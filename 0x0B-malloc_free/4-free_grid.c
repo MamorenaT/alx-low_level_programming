@@ -11,12 +11,16 @@
  *
  * Return: no return
  */
+
 void free_grid(int **grid, int height)
 {
-	if (grid != NULL && height != 0)
+	int i;
+	int *p;
+
+	for (i = 0; i < height; i++)
 	{
-		for (; height >= 0; height--)
-			free(grid[height]);
-		free(grid);
+		p = grid[i];
+		free(p);
 	}
+	free(grid);
 }
