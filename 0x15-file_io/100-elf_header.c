@@ -213,7 +213,7 @@ int check_elf(char *ptr)
  * main - check the code for leaners.
  * @argc: number of arguments.
  * @argv: arguments vector.
- * Return: 0 on success 
+ * Return: 0 on success
  */
 
 int main(int argc, char *argv[])
