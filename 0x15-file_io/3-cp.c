@@ -32,18 +32,18 @@ char *create_buffer(char *file)
 
 /**
 * close_file - Shut down the descriptors.
-* @ef: The descriptors in the file.
+* @fd: The descriptors in the file.
 */
 
-void close_file(int ef)
+void close_file(int fd)
 {
 	int b;
 
-	b = close(ef);
+	b = close(fd);
 
 	if (b == -1)
 	{
-	dprintf(STDERR_FILENO, "Error: Can't close ef %d\n", ef);
+	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 	exit(100);
 	}
 }
