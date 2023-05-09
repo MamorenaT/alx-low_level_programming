@@ -7,15 +7,15 @@
 #include <elf.h>
 
 /**
- * print_addr - prints the address
- * @ptr: magic
- * Return: nothing to return.
+ * print_addr - This program displays the address.
+ * @ptr: an illusions
+ * Return: if unsuccessful return nothing.
  */
 
 void print_addr(char *ptr)
 {
-	int i;
 	int begin;
+	int a;
 	char sys;
 
 	printf("  Entry point address:               0x");
@@ -25,12 +25,12 @@ void print_addr(char *ptr)
 	{
 	begin = 26;
 	printf("80");
-	for (i = begin; i >= 22; i--)
+	for (a = begin; a >= 22; a--)
 	{
-	if (ptr[i] > 0)
-	printf("%x", ptr[i]);
-	else if (ptr[i] < 0)
-	printf("%x", 256 + ptr[i]);
+	if (ptr[a] > 0)
+	printf("%x", ptr[a]);
+	else if (ptr[a] < 0)
+	printf("%x", 256 + ptr[a]);
 	}
 	if (ptr[7] == 6)
 	printf("00");
@@ -39,13 +39,13 @@ void print_addr(char *ptr)
 	if (sys == '2')
 	{
 	begin = 26;
-	for (i = begin; i > 23; i--)
+	for (a = begin; a > 23; a--)
 	{
-	if (ptr[i] >= 0)
-	printf("%02x", ptr[i]);
+	if (ptr[a] >= 0)
+	printf("%02x", ptr[a]);
 
-	else if (ptr[i] < 0)
-	printf("%02x", 256 + ptr[i]);
+	else if (ptr[a] < 0)
+	printf("%02x", 256 + ptr[a]);
 
 	}
 	}
@@ -53,9 +53,9 @@ void print_addr(char *ptr)
 }
 
 /**
- * print_type - prints the type
- * @ptr: magic
- * Return: nothing to retunr.
+ * print_type - This program displays the category.
+ * @ptr: an illusions
+ * Return: if unsuccessful return nothing.
  */
 
 void print_type(char *ptr)
@@ -83,9 +83,9 @@ void print_type(char *ptr)
 }
 
 /**
- * print_osabi - print osabi
- * @ptr: magic
- * Return: nothing to return.
+ * print_osabi - This program displays osabi.
+ * @ptr: an illusion
+ * Return: if unsuccessful return nothing.
  */
 
 void print_osabi(char *ptr)
@@ -107,9 +107,9 @@ void print_osabi(char *ptr)
 
 
 /**
- * print_version - print the version
- * @ptr: magic
- * Return: nothing to return.
+ * print_version - This program displays version.
+ * @ptr: an illusion
+ * Return: if unsuccessful return nothing.
  */
 
 void print_version(char *ptr)
@@ -125,9 +125,9 @@ void print_version(char *ptr)
 }
 
 /**
- * print_data - print data
- * @ptr: magic
- * Return: nothing to return.
+ * print_data - This program displays data.
+ * @ptr: an illusion
+ * Return: if unsuccessful return nothing.
  */
 
 void print_data(char *ptr)
@@ -143,9 +143,9 @@ void print_data(char *ptr)
 }
 
 /**
- * print_magic - prints magic information
- * @ptr: magic
- * Return: nothing to return.
+ * print_magic - This program displays magic information.
+ * @ptr: an illusion
+ * Return: if unsuccessful return nothing.
  */
 
 void print_magic(char *ptr)
@@ -162,9 +162,10 @@ void print_magic(char *ptr)
 }
 
 /**
- * check_sys - checks version system.
- * @ptr: magic
- * Return: nothing to return.
+ * check_sys - The program checks which
+ * version is being used.
+ * @ptr: an illusion
+ * Return: if unsuccessful return nothing.
  */
 
 void check_sys(char *ptr)
@@ -191,9 +192,9 @@ void check_sys(char *ptr)
 }
 
 /**
- * check_elf - check if it's an elf file.
- * @ptr: magic
- * Return: 1 on success of an elf file. 0 if elf file fails.
+ * check_elf - The program checks if the file is an elf.
+ * @ptr: an illusion
+ * Return: 1 if successful, 0 if if unsuccessful return nothing.
  */
 
 int check_elf(char *ptr)
@@ -210,15 +211,16 @@ int check_elf(char *ptr)
 }
 
 /**
- * main - check the code for leaners.
- * @argc: number of arguments.
- * @argv: arguments vector.
- * Return: 0 on success
+ * main - The program checks the code for students.
+ * @argc: the amount of arguments.
+ * @argv: The arguments vector is a list of information
+ * passed to a computer program.
+ * Return: 0 if successful
  */
 
 int main(int argc, char *argv[])
 {
-	int fd, ret_read;
+	int ef, ret_read;
 	char ptr[27];
 
 	if (argc != 2)
@@ -227,16 +229,16 @@ int main(int argc, char *argv[])
 	exit(98);
 	}
 
-	fd = open(argv[1], O_RDONLY);
+	ef = open(argv[1], O_RDONLY);
 
-	if (fd < 0)
+	if (ef < 0)
 	{
 	dprintf(STDERR_FILENO, "Err: file can not be open\n");
 	exit(98);
 	}
 
-	lseek(fd, 0, SEEK_SET);
-	ret_read = read(fd, ptr, 27);
+	lseek(ef, 0, SEEK_SET);
+	ret_read = read(ef, ptr, 27);
 
 	if (ret_read == -1)
 	{
@@ -251,7 +253,7 @@ int main(int argc, char *argv[])
 	}
 
 	check_sys(ptr);
-	close(fd);
+	close(ef);
 
 	return (0);
 }

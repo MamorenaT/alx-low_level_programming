@@ -3,15 +3,15 @@
 #include <stdlib.h>
 
 /**
-* create_file - Creates a file.
-* @filename: name of file
-* @text_content: contents to be written to the file.
-* Return: 1 if the file is present, -1 if it fails to return file.
+* create_file - Makes a file.
+* @filename: The name given to a file
+* @text_content: What should be written in the file.
+* Return: 1 if successful, -1 if unsuccessful.
 */
 
 int create_file(const char *filename, char *text_content)
 {
-	int fd, wr, len = 0;
+	int ef, wr, len = 0;
 
 	if (filename == NULL)
 	return (-1);
@@ -22,13 +22,13 @@ int create_file(const char *filename, char *text_content)
 	len++;
 	}
 
-	fd = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
-	wr = write(fd, text_content, len);
+	ef  = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
+	wr = write(ef, text_content, len);
 
-	if (fd == -1 || wr == -1)
+	if (ef == -1 || wr == -1)
 	return (-1);
 
-	close(fd);
+	close(ef);
 
 	return (1);
 }

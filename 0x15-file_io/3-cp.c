@@ -9,9 +9,9 @@ char *create_buffer(char *file);
 void close_file(int fd);
 
 /**
-* create_buffer - bytes for a buffer
-* @file: names of file.
-* Return: a file name
+* create_buffer - The number of bytes in a buffer.
+* @file: the name of a file.
+* Return: Input a name for the file.
 */
 
 char *create_buffer(char *file)
@@ -31,32 +31,32 @@ char *create_buffer(char *file)
 }
 
 /**
-* close_file - close descriptors.
-* @fd: file descriptors.
+* close_file - Shut down the descriptors.
+* @ef: The descriptors in the file.
 */
 
-void close_file(int fd)
+void close_file(int ef)
 {
-	int s;
+	int b;
 
-	s = close(fd);
+	b = close(ef);
 
-	if (s == -1)
+	if (b == -1)
 	{
-	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+	dprintf(STDERR_FILENO, "Error: Can't close ef %d\n", ef);
 	exit(100);
 	}
 }
 
 /**
-* main - Check the code for leaners.
-* @argc: number of arguments
-* @argv: arguments vector
-* Return: Always 0
-* Description: If the argument count is incorrect - exit code 97.
-* If file_from does not exist or cannot be read - exit code 98.
-* If file_to cannot be created or written to - exit code 99.
-* If file_to or file_from cannot be closed - exit code 100.
+* main - The program checks the code for students.
+* @argc: The amount of arguments
+* @argv: The arguments vector
+* Return: Always print 0
+* Description: If the amount of argument is incorrect - exit code 97.
+* If file_from does not exist or cant read - exit code 98.
+* If file_to cannot be generated or printed to - exit code 99.
+* If file_to or file_from cant be exited - exit code 100.
 */
 
 int main(int argc, char *argv[])
